@@ -1,0 +1,4 @@
+#include "resource.h"
+#include "winres.h"
+
+IDR_IMAGE2              12345                   "image2.png"
