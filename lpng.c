@@ -297,16 +297,16 @@ static png_t * LoadPngResource(const wchar_t * name, const wchar_t * type, HMODU
 	if (! hRes)
 		return NULL;
 
-	if (! SizeofResource(0, hRes))
+	if (! SizeofResource(module, hRes))
 		return NULL;
 
-	if (! (hResData = LoadResource(0, hRes)))
+	if (! (hResData = LoadResource(module, hRes)))
 		return NULL;
 
 	if (! (buf.ptr = LockResource(hResData)))
 		return NULL;
 
-	buf.len = SizeofResource(0, hRes);
+	buf.len = SizeofResource(module, hRes);
 
 	return LoadPngEx(data_reader, &buf);
 }
